@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Plats{% endblock %}
+
+{% block body %}
+    <h1>Mes Plats</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix Fournisseur</th>
+                <th>Description</th>
+                <th>Prix Client</th>
+                <th>Type de plat</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plat in plats %}
+                <tr>
+                    <td>{{ plat.nomP }}</td>
+                    <td>{{ plat.prixFournisseurP }}</td>
+                    <td>{{ plat.descriptionP }}</td>
+                    <td>{{ plat.prixClientP }}</td>
+                    <td>{{ plat.unTypePlat.description }}<td>
+                        <a href="{{ path('app_plat_edit', {'id': plat.id}) }}"><button class="btn btn-primary custom-btn">Edit</button></a>
+                        {{ include('plat/_delete_form.html.twig', {'plat': plat}) }}
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun plat trouvé.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('index_restaurateur') }}"><button class="btn btn-primary custom-btn">Menu</button></a>
+{% endblock %}

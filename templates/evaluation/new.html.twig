@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Evaluation{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle évaluation</h1>
+
+    {{ include('evaluation/_form.html.twig') }}
+
+    <a href="{{ path('index_client') }}"><button class="btn btn-primary  custom-btn">Menu</button></a>
+{% endblock %}

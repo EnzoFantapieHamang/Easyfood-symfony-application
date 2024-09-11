@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <h1>Votre profil</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>NumAdrR</th>
+                <td>{{ user.numAdrR }}</td>
+            </tr>
+            <tr>
+                <th>RueAdrR</th>
+                <td>{{ user.rueAdrR }}</td>
+            </tr>
+            <tr>
+                <th>CpR</th>
+                <td>{{ user.cpR }}</td>
+            </tr>
+            <tr>
+                <th>VilleR</th>
+                <td>{{ user.villeR }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary custom-btn"  href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+    
+    <form method="post" action="{{ path('app_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Are you sure you want to delete this user?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+    <button class="btn btn-danger">delete</button>
+    </form>
+
+{% endblock %}

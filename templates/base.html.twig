@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        {% block stylesheets %}{% endblock %}
+        <style type="text/css">
+            #image{
+                height: 300px;
+                background-image : url({{ asset('images/EasyFood.png') }});
+                background-repeat : no-repeat no-repeat;
+                background-position : right top;
+            }
+            #titre{
+                text-align : right;
+            }
+
+            #barrenav{
+                background-color : #A9BC3B;
+            }
+
+            .btn-primary.custom-btn {
+                background-color: #2C6489;
+                border-color: #2C6489;
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm  navbar-light" id="barrenav">
+            <ul class="navbar-nav">
+                
+                {% if app.user is null %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+                {% endif %}
+                
+                
+                {% if app.user %}
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('app_user_show', {'id': app.user.id}) }}">Profil</a>
+                </li>
+              
+                    {% if is_granted("ROLE_RESTAURATEUR") %}
+                
+                <li class="nav-item ">
+                <a class="nav-link" href="{{ path('app_plat_mes_plats', {'id': app.user.id}) }}">mes plats</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('app_type_plat_new') }}">Ajouter Type de plat</a>
+                </li>
+                
+                
+                    {% endif %}
+                
+                    {% if is_granted("ROLE_CLIENT") %}
+                    
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('app_evaluation_new') }}">évaluer un restaurant</a>
+                </li>
+                
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
+
+        
+        
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plat index{% endblock %}
+
+{% block body %}
+    <h1>Mes plats</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom Plat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plat in plats %}
+            <tr>
+                <td>{{ plat.nomP }}</td>
+                <td>
+                    <a href="{{ path('app_plat_show', {'id': plat.id}) }}"><button class="btn btn-primary  custom-btn">show</button></a>
+                    <a href="{{ path('app_plat_edit', {'id': plat.id}) }}"><button class="btn btn-primary  custom-btn">edit</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <a href="{{ path('app_plat_new') }}"><button class="btn btn-primary  custom-btn">Create new</button></a>
+{% endblock %}

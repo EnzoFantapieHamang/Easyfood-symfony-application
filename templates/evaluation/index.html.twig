@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evaluation index{% endblock %}
+
+{% block body %}
+    <h1>Evaluation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>QualiteNouritureE</th>
+                <th>RespectRecetteE</th>
+                <th>EsthetiquePlatE</th>
+                <th>CoutNoteE</th>
+                <th>CommentaireClient</th>
+                <th>CommentaireVisibleE</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluation in evaluations %}
+            <tr>
+                <td>{{ evaluation.id }}</td>
+                <td>{{ evaluation.qualiteNouritureE }}</td>
+                <td>{{ evaluation.respectRecetteE }}</td>
+                <td>{{ evaluation.esthetiquePlatE }}</td>
+                <td>{{ evaluation.coutNoteE }}</td>
+                <td>{{ evaluation.commentaireClient }}</td>
+                <td>{{ evaluation.commentaireVisibleE ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_evaluation_show', {'id': evaluation.id}) }}"><button class="btn btn-primary  custom-btn">show</button></a>
+                    <a href="{{ path('app_evaluation_edit', {'id': evaluation.id}) }}"><button class="btn btn-primary  custom-btn">edit</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <a href="{{ path('app_evaluation_new') }}"><button class="btn btn-primary  custom-btn">Create new</button></a>
+{% endblock %}
