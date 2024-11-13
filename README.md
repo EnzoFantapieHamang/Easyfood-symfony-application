@@ -3,4 +3,4 @@
 "# Easyfood" 
 
 # Easyfood
- a17047ae6c093f37a7175b660d045ceebaa09de2
+Easyfood is a collaborative project. This is a symfony application in order to learn symfony.
