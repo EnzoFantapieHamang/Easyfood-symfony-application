@@ -12,8 +12,6 @@ Before running this project, ensure the following software is installed on your 
 
 ## Installation with WAMP
 
-### Option 1: Using WAMP
-
 1. Download and install WAMP from [here](https://www.wampserver.com/en/).
 2. Once WAMP is installed, start the WAMP server (make sure Apache and MySQL are running).
 3. Open WAMP's PHPMyAdmin and create a new database (e.g., `easyfood`).
