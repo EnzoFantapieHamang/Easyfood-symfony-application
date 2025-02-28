@@ -70,10 +70,8 @@ Before running this project, ensure the following software is installed on your 
 
 This project was developed by:
 
-- [Your Name](https://github.com/your-username)
-- [Contributor 1](https://github.com/contributor-1)
-- [Contributor 2](https://github.com/contributor-2)
-
-Thanks to them for their contributions!
+- https://github.com/EnzoFantapieHamang
+- Amadou Ndiaye
+- Rémi Larralde
 
 
