@@ -26,3 +26,54 @@ Before running this project, ensure the following software is installed on your 
    ```bash
    git clone https://github.com/EnzoFantapieHamang/Easyfood-symfony-application.git
 
+2. **Navigate to the project directory**
+
+   ```bash
+    cd Easyfood-symfony-application
+   
+3. **Install PHP dependencies**
+
+   ```bash
+    composer install
+
+4. **Configure the database**
+   Modify the database connection settings in the .env file (or .env.local if used) at the root of the project. Replace the    connection details with your own:
+   ```bash
+    DATABASE_URL="mysql://root:@127.0.0.1:3306/easyfood"
+
+5. **Create the database and apply migrations**
+   If the database does not exist yet, create it using the following command:
+   ```bash
+    php bin/console doctrine:database:create
+
+   Then, apply the migrations to create the necessary tables:
+   ```bash
+    php bin/console doctrine:migrations:migrate
+
+## Running the project
+
+1. **Start the Symfony server**
+
+   You can start the local Symfony server with the following command:
+
+   ```bash
+   symfony server:start
+
+2. **Access the application**
+
+   Open your web browser and navigate to the following address to see the application in action:
+
+   ```bash
+   http://localhost/EasyFood/public
+
+## Contributors
+
+This project was developed by:
+
+- [Your Name](https://github.com/your-username)
+- [Contributor 1](https://github.com/contributor-1)
+- [Contributor 2](https://github.com/contributor-2)
+
+Thanks to them for their contributions!
+
+
