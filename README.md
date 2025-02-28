@@ -39,12 +39,14 @@ Before running this project, ensure the following software is installed on your 
    ```bash
     DATABASE_URL="mysql://root:@127.0.0.1:3306/easyfood"
 
-5. **Create the database and apply migrations**
+5. **Create the database**
    If the database does not exist yet, create it using the following command:
    ```bash
     php bin/console doctrine:database:create
+   
+5. **Apply migrations**
 
-   Then, apply the migrations to create the necessary tables:
+   Apply the migrations to create the necessary tables:
    ```bash
     php bin/console doctrine:migrations:migrate
 
